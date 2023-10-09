@@ -371,6 +371,30 @@
     padding: 10rem 40rem 2rem 0;
   }
   
+
+
+
+/* Section Latest news 
+    ============================= */
+
+.section-latest-news .row {
+  flex-direction: row-reverse;
+}
+
+
+
+/* Section SERVICES 
+    ============================= */
+
+  
+/* Targeting the row class inside the section-services class */
+
+.section-services .row {
+  flex-wrap: wrap;
+}
+
+
+
   /*** 4. CARD ***/
   
   /* Card (all styles)

@@ -2,6 +2,10 @@
 
 ## Learning Objectives
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8934ae2f897d4200ea786e6308c7e54245e6375d
 #### What Sass means
 
 #### How to write Sass & Scss file

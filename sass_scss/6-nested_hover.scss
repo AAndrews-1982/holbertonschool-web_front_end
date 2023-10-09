@@ -1,0 +1,13 @@
+// Apply styling to button tags
+button {
+  color: #FF0000;
+
+  // Apply styling when the user hovers over button tags
+  &:hover {
+    color: #00FF00;
+  }
+}
+
+// Debug messages
+@debug "Text color set to #FF0000 for button tags.";
+@debug "Text color set to #00FF00 when hovering over button tags.";

@@ -1,0 +1,13 @@
+// Apply styling to elements inside body tags
+body {
+  color: #3D3D3D;
+
+  // Apply styling to elements of class .red inside body tags
+  .red {
+    color: #FF0000;
+  }
+}
+
+// Debug messages
+@debug "Text color set to #3D3D3D for elements inside body tags.";
+@debug "Text color set to #FF0000 for elements of class .red inside body tags.";

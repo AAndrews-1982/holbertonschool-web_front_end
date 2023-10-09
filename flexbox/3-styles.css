@@ -386,12 +386,12 @@
 /* Section SERVICES 
     ============================= */
 
-  
 /* Targeting the row class inside the section-services class */
 
 .section-services .row {
   flex-wrap: wrap;
 }
+
 
 
 

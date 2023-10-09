@@ -1,0 +1,14 @@
+// Apply styling to body and its children
+body {
+  margin: 0;
+  padding: 0;
+
+  // Apply margin to all p tags inside body
+  p {
+    margin: 10px;
+  }
+}
+
+// Debug messages for body styles
+@debug "Setting margin and padding for body to 0";
+@debug "Setting margin for p tags inside body to 10px";

@@ -1,0 +1,21 @@
+// Define a shared style for class .info
+.info {
+  font-size: 12px;
+}
+
+// Apply text color #00FF00 to class .success and extend style .info
+.success {
+  @extend .info;
+  color: #00FF00;
+}
+
+// Apply text color #FF0000 to class .warning and extend style .info
+.warning {
+  @extend .info;
+  color: #FF0000;
+}
+
+// Debug messages
+@debug "Font size set to 12px for class .info.";
+@debug "Text color set to #00FF00 for class .success and extended style .info.";
+@debug "Text color set to #FF0000 for class .warning and extended style .info.";

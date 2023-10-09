@@ -1,0 +1,22 @@
+// main.scss
+
+// Import the color variables
+@import "10-colors";
+
+// Apply text colors to classes
+.red {
+  color: $red;
+}
+
+.green {
+  color: $green;
+}
+
+.blue {
+  color: $blue;
+}
+
+// Debug messages
+@debug "Text color set to #{$red} for class .red.";
+@debug "Text color set to #{$green} for class .green.";
+@debug "Text color set to #{$blue} for class .blue.";

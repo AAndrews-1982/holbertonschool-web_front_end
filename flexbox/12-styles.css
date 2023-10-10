@@ -590,9 +590,12 @@
 
 .main-article {
    padding: 5rem 0;
+}
+
 
  /* Post
     ============================= */
+
 
     .post {
       display: flex;

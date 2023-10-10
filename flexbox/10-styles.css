@@ -361,7 +361,7 @@
   }
 
 
-  .section-hero . section-body {
+  .section-hero .section-body {
    padding: 10rem 4rem;
 }
 
@@ -393,9 +393,6 @@
   .section-latest-news .row {
     flex-direction: row-reverse;
   }
-
-  
-
 
 
 /* Section Latest news 

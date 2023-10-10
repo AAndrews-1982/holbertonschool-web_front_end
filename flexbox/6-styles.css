@@ -197,6 +197,8 @@
     width: calc((100% / 2) - 2rem); /* Replace the current width */
   }
   
+
+
   /* Navbar
       ============================= */
   
@@ -216,7 +218,8 @@
   }
 
   .nav .nav-item + .nav-item {
-     margin-top: var(--nav-item-margin);
+     margin: 0 0 0 2rem;
+}
   
   .nav .nav-link {
     display: block;

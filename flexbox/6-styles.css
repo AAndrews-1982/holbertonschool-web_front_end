@@ -208,13 +208,16 @@
     text-align: center;
   }
   
-  .nav .nav-item {
+  .nav .nav-item + .nav-item {
     font-family: var(--nav-item-font-family);
     font-weight: var(--nav-item-font-weight);
     font-size: var(--nav-item-font-size);
     letter-spacing: var(--nav-item-letter-spacing);
     margin: 0 0 0 2rem; /* Change margin value to 0 0 0 2rem */
   }
+
+  .nav .nav-item + .nav-item {
+     margin-top: 2rem; /* Margin declaration */
   
   .nav .nav-link {
     display: block;

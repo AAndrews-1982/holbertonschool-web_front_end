@@ -218,7 +218,7 @@
   }
 
   .nav .nav-item + .nav-item {
-     margin-top: var(--nav-item-margin);
+     margin: var(--nav-item-margin);
 }
   
   .nav .nav-link {

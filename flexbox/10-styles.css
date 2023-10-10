@@ -372,12 +372,14 @@
 }
 
 /* .hero-homepage class selector (add this class to your HTML later) */
+
 .hero-homepage .section-body {
   padding: 10rem 4rem; /* Added */
 }
 
 /* .hero-homepage class selector (add this class to your HTML later) */
-.hero-homepage .section-category {
+
+ .hero-homepage .section-category {
   color: var(--color-white); /* Updated to use the variable */
   text-transform: uppercase; /* Added */
 }

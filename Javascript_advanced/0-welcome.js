@@ -12,4 +12,4 @@ function welcome(firstName, lastName) {
 }
 
 // Example usage
-welcome('John', 'Doe');
+welcome('Holberton', 'School');

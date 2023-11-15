@@ -1,7 +1,4 @@
-/* 5. Changing DOM with closure 
-@Description: code changes the web page to look according the 
-Spooky, Dark Mode and Scream mode options */
-
+// ChangeMode functions for spooky, dark, and scream modes
 function changeMode(size, weight, transform, background, color) {
     return function() {
         document.documentElement.style["font-size"] = size;

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Task 4</title>
+
+    <!-- Load jQuery from CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
+
+    <!-- Your script to create and replace the family tree table -->
+    <script type="application/javascript">
+        // Create a function named createFamilyTree
+        function createFamilyTree() {
+            // Append the entire table to the body of the page
+            $("body").append(
+                $('<table>').append(
+                    $('<thead>').append(
+                        $('<tr>').append(
+                            $('<th>').text('Firstname'),
+                            $('<th>').text('Lastname')
+                        )
+                    ),
+                    $('<tbody>').append(
+                        // Row 1
+                        $('<tr>').append(
+                            $('<td>').text('Guillaume'),
+                            $('<td>').text('Salva')
+                        ),
+                        // Row 2
+                        $('<tr>').append(
+                            $('<td>').text('Paulette'),
+                            $('<td>').text('Salva')
+                        ),
+                        // Row 3
+                        $('<tr>').append(
+                            $('<td>').text('Antoine'),
+                            $('<td>').text('Salva')
+                        )
+                    )
+                )
+            );
+        }
+
+        // Create a function named replaceFamilyTree
+        function replaceFamilyTree() {
+            // Replace the content of tbody with a new tr
+            $('tbody').html(
+                // New row with two cells
+                $('<tr>').append(
+                    $('<td>').text('Gerard'),
+                    $('<td>').text('Bonissa')
+                )
+            );
+        }
+
+        // Call the createFamilyTree and replaceFamilyTree functions when the document is ready
+        $(document).ready(function () {
+            createFamilyTree();
+            replaceFamilyTree();
+        });
+    </script>
+</head>
+
+<body>
+    <!-- The body can be empty since the content is dynamically added using jQuery -->
+</body>
+
+</html>

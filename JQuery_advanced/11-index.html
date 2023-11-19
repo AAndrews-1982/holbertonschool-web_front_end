@@ -1,0 +1,107 @@
+<!-- 11-index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post Form</title>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+
+<script>
+  // Define the server endpoint
+  const API_ENDPOINT = 'http://localhost:3000/posts'; // Change this to your actual API endpoint
+
+  // Function to list posts
+  function listPosts() {
+    // Your implementation for listing posts (not provided in the question)
+    // This function should fetch and display existing posts.
+  }
+
+  // Function to add a post row
+  function addPostRow(data) {
+    // Your implementation for adding a new post row (not provided in the question)
+    // This function should update the UI to display the newly added post.
+  }
+
+  // Function to build the form
+  function buildForm() {
+    const form = $('<form>');
+    
+    // Div for author input
+    const authorDiv = $('<div>');
+    authorDiv.append('<label for="author">Author</label>');
+    authorDiv.append('<input type="text" id="author">');
+    
+    // Div for title textarea
+    const titleDiv = $('<div>');
+    titleDiv.append('<label for="title">Title</label>');
+    titleDiv.append('<textarea id="title"></textarea>');
+    
+    // Submit button
+    const submitBtn = $('<input type="submit">');
+    
+    // Append elements to the form
+    form.append(authorDiv, titleDiv, submitBtn);
+    
+    // Append the form to the body
+    $('body').append(form);
+
+    // Clicking on the label selects the input text
+    $('label').on('click', function() {
+      $(this).next().focus();
+    });
+
+    // Pressing enter on the input text submits the form
+    $('input[type="text"]').on('keypress', function(event) {
+      if (event.which === 13) { // Enter key
+        form.submit();
+      }
+    });
+
+    // Submit form event
+    form.on('submit', function(event) {
+      event.preventDefault(); // Prevent form from reloading the page
+      sendForm();
+    });
+  }
+
+  // Function to send the form data to the server
+  function sendForm() {
+    // Display a message about sending the query
+    $('form').after('<p>About to send the query to the API</p>');
+
+    // Create data object with title and author attributes
+    const data = {
+      title: $('#title').val(),
+      author: $('#author').val()
+    };
+
+    // Send a POST query to the server endpoint
+    $.ajax({
+      url: API_ENDPOINT,
+      type: 'POST',
+      contentType: 'application/json',
+      data: JSON.stringify(data),
+      success: function(response) {
+        // Call the function to add the post row
+        addPostRow(response);
+      },
+      error: function() {
+        // Display an alert for an error in the POST query
+        alert('Error sending the POST query');
+      }
+    });
+  }
+
+  // Call the functions when the page loads
+  $(document).ready(function() {
+    listPosts();
+    buildForm();
+  });
+</script>
+
+</body>
+</html>

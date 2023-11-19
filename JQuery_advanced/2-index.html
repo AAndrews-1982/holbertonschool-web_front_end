@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Task 2</title>
+
+    <!-- Load jQuery from CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
+
+    <!-- Your script to create and append the family tree table -->
+    <script type="application/javascript">
+        // Create a function named createFamilyTree
+        function createFamilyTree() {
+            // Create the entire table code as a string
+            var tableCode = '<table>' +
+                '<thead>' +
+                '<tr>' +
+                '<th>Firstname</th>' +
+                '<th>Lastname</th>' +
+                '</tr>' +
+                '</thead>' +
+                '<tbody>' +
+                '<tr>' +
+                '<td>Guillaume</td>' +
+                '<td>Salva</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<td>Paulette</td>' +
+                '<td>Salva</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<td>Antoine</td>' +
+                '<td>Salva</td>' +
+                '</tr>' +
+                '</tbody>' +
+                '</table>';
+
+            // Append the entire table to the body of the page
+            $("body").append(tableCode);
+        }
+
+        // Call the createFamilyTree function when the document is ready
+        $(document).ready(function () {
+            createFamilyTree();
+        });
+    </script>
+</head>
+
+<body>
+    <!-- The body can be empty since the content is dynamically added using jQuery -->
+</body>
+
+</html>

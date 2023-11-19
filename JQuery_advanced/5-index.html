@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Task 5</title>
+
+    <!-- Load jQuery from CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
+
+    <!-- Your script to create and manipulate the family tree table -->
+    <script type="application/javascript">
+        // Create a function named createFamilyTree
+        function createFamilyTree() {
+            // Append an empty table to the body
+            $("body").append(
+                $('<table>').append(
+                    $('<thead>').append(
+                        $('<tr>').append(
+                            $('<th>').text('Firstname'),
+                            $('<th>').text('Lastname')
+                        )
+                    ),
+                    $('<tbody>')
+                )
+            );
+        }
+
+        // Create a function named addNewMember
+        function addNewMember(firstName, lastName) {
+            // Append a new row to the body of the table with three cells
+            $('tbody').append(
+                $('<tr>').append(
+                    // Cell 1: Display firstName
+                    $('<td>').text(firstName),
+                    // Cell 2: Display lastName
+                    $('<td>').text(lastName),
+                    // Cell 3: Display (x) and set up click event to remove the row
+                    $('<td>').text('(x)').css('background-color', 'orange').click(function () {
+                        $(this).closest('tr').remove();
+                    })
+                )
+            );
+        }
+
+        // Call the createFamilyTree function when the document is ready
+        $(document).ready(function () {
+            createFamilyTree();
+
+            // Generate a fake table using addNewMember
+            addNewMember('Guillaume', 'Salva');
+            addNewMember('Arielle', 'Snizt');
+            addNewMember('Fanette', 'Snizt');
+            addNewMember('Gerard', 'Snizt');
+            addNewMember('Victor', 'Salva');
+        });
+    </script>
+</head>
+
+<body>
+    <!-- The body can be empty since the content is dynamically added using jQuery -->
+</body>
+
+</html>

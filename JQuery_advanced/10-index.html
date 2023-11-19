@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Task 10</title>
+
+    <!-- Load jQuery from CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+
+<body>
+    <!-- The body can be empty since the content is dynamically added using jQuery -->
+
+    <script type="application/javascript">
+        // Create a function named addPostRow
+        function addPostRow(data) {
+            // Append a paragraph to the body
+            $('body').append(
+                $('<p>').append(
+                    // Create a span element with the text containing post details
+                    $('<span>').text('Post created with id ' + data.id + ', title: ' + data.title + ', author: ' + data.author)
+                )
+            );
+        }
+
+        // Create a function named listPosts
+        function listPosts() {
+            // Query the local server on the posts endpoint
+            $.get('http://localhost:3000/posts', function (response) {
+                // Call addPostRow for each element in the response
+                response.forEach(function (post) {
+                    addPostRow(post);
+                });
+            }).fail(function () {
+                // Display an alert with the message Server Error when the server is unavailable
+                alert('Server Error');
+            });
+        }
+
+        // Call listPosts when the page loads
+        $(document).ready(function () {
+            listPosts();
+        });
+    </script>
+</body>
+
+</html>

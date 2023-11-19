@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Task 6</title>
+
+    <!-- Load jQuery from CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
+
+    <!-- Your script to create and manipulate the family tree table -->
+    <script type="application/javascript">
+        // Create a function named createFamilyTree
+        function createFamilyTree() {
+            // Append an empty table to the body
+            $("body").append(
+                $('<table>').append(
+                    $('<thead>').append(
+                        $('<tr>').append(
+                            $('<th>').text('Firstname'),
+                            $('<th>').text('Lastname')
+                        )
+                    ),
+                    $('<tbody>')
+                )
+            );
+        }
+
+        // Create a function named addNewMember
+        function addNewMember(firstName, lastName, position) {
+            // Determine whether to add the row at the top or bottom
+            if (position === 'before') {
+                // Add the row at the top of the table
+                $('tbody').prepend(
+                    $('<tr>').append(
+                        $('<td>').text(firstName),
+                        $('<td>').text(lastName),
+                        $('<td>').text('(x)').css('background-color', 'orange').click(function () {
+                            $(this).closest('tr').remove();
+                        })
+                    )
+                );
+            } else {
+                // Add the row at the bottom of the table
+                $('tbody').append(
+                    $('<tr>').append(
+                        $('<td>').text(firstName),
+                        $('<td>').text(lastName),
+                        $('<td>').text('(x)').css('background-color', 'orange').click(function () {
+                            $(this).closest('tr').remove();
+                        })
+                    )
+                );
+            }
+        }
+
+        // Create a function named createForm
+        function createForm() {
+            // Add two input elements and a select element before the table
+            $('table').before(
+                $('<input>').attr('type', 'text'), // First input
+                $('<input>').attr('type', 'text').css('margin-left', '10px'), // Second input
+                $('<select>').append(
+                    $('<option>').val('before').text('Before'),
+                    $('<option>').val('after').text('After')
+                ).css('margin-left', '10px'), // Select element
+                $('<input>').attr('type', 'submit').val('Add Member').css('margin-left', '10px').click(function (event) {
+                    // Prevent the default form submission
+                    event.preventDefault();
+
+                    // Get the values from the inputs and select element
+                    var firstName = $('input[type="text"]:first').val();
+                    var lastName = $('input[type="text"]:nth-of-type(2)').val();
+                    var position = $('select').val();
+
+                    // Call the addNewMember function with the values
+                    addNewMember(firstName, lastName, position);
+                })
+            );
+        }
+
+        // Call the createFamilyTree and createForm functions when the document is ready
+        $(document).ready(function () {
+            createFamilyTree();
+            createForm();
+        });
+    </script>
+</head>
+
+<body>
+    <!-- The body can be empty since the content is dynamically added using jQuery -->
+</body>
+
+</html>

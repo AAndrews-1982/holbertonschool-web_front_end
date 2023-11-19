@@ -5,9 +5,11 @@
 ## Resources
 ### Read or watch:
 
-jQuery CDN
-jQuery API Documentation
-Json server
+jQuery CDN - Link: https://releases.jquery.com
+
+jQuery API Documentation - Link: https://api.jquery.com
+
+Json server - Link: https://github.com/typicode/json-server
 
 ## Learning Objectives
 

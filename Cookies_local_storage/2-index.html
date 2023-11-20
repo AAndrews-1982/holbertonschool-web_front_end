@@ -1,0 +1,68 @@
+<!-- 1-index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cookie Example</title>
+</head>
+<body>
+
+  <!-- Two text inputs -->
+  <label for="firstname">First Name:</label>
+  <input type="text" id="firstname">
+
+  <label for="email">Email:</label>
+  <input type="text" id="email">
+
+  <!-- Buttons to trigger functions -->
+  <button onclick="setCookies()">Log me in</button>
+  <button onclick="showCookies()">Show the cookies</button>
+
+  <script>
+    // Function to set cookies to expire in 10 days
+    function setCookies() {
+      // Get values from inputs
+      const firstnameValue = document.getElementById('firstname').value;
+      const emailValue = document.getElementById('email').value;
+
+      // Set cookies with an expiration date 10 days from now
+      const expirationDate = new Date();
+      expirationDate.setDate(expirationDate.getDate() + 10);
+
+      document.cookie = `firstname=${firstnameValue}; expires=${expirationDate.toUTCString()}`;
+      document.cookie = `email=${emailValue}; expires=${expirationDate.toUTCString()}`;
+    }
+
+    // Function to show cookies
+    function showCookies() {
+      // Create a paragraph element
+      const paragraph = document.createElement('p');
+
+      // Get cookie values
+      const firstnameCookie = getCookie('firstname');
+      const emailCookie = getCookie('email');
+
+      // Set inner HTML of the paragraph
+      paragraph.innerHTML = `Cookies: First Name - ${firstnameCookie}, Email - ${emailCookie}`;
+
+      // Append the paragraph at the bottom of the page
+      document.body.appendChild(paragraph);
+    }
+
+    // Function to get a specific cookie value by name
+    function getCookie(name) {
+      const cookies = document.cookie.split(';');
+      for (const cookie of cookies) {
+        const [cookieName, cookieValue] = cookie.trim().split('=');
+        if (cookieName === name) {
+          return cookieValue;
+        }
+      }
+      return '';
+    }
+  </script>
+
+</body>
+</html>

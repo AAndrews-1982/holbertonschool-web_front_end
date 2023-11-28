@@ -1,0 +1,82 @@
+<!-- 12-index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post Form with Delete</title>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+
+<script>
+  // Define the server endpoint
+  const API_ENDPOINT = 'http://localhost:3000/posts'; // Change this to your actual API endpoint
+
+  // Function to list posts
+  function listPosts() {
+    // Your implementation for listing posts (not provided in the question)
+    // This function should fetch and display existing posts.
+  }
+
+  // Function to add a post row
+  function addPostRow(data) {
+    const rowId = 'row-' + data.id;
+    const paragraph = $('<p>').attr('id', rowId);
+
+    // Span for delete button
+    const deleteSpan = $('<span>').text('(delete)').addClass('delete-button');
+    deleteSpan.on('click', function() {
+      deletePost(data.id);
+    });
+
+    // Span for post information
+    const postInfoSpan = $('<span>').text(`Author: ${data.author}, Title: ${data.title}`);
+
+    // Append spans to the paragraph
+    paragraph.append(deleteSpan, ' ', postInfoSpan);
+
+    // Append the paragraph to the body
+    $('body').append(paragraph);
+  }
+
+  // Function to delete a post
+  function deletePost(id) {
+    // Display a message about deleting the post
+    $(`#row-${id}`).after('<p>About to delete the post</p>');
+
+    // Send a DELETE query to the server endpoint with the post id
+    $.ajax({
+      url: `${API_ENDPOINT}/${id}`,
+      type: 'DELETE',
+      success: function() {
+        // Remove the row from the body if the query is successful
+        $(`#row-${id}`).remove();
+      },
+      error: function() {
+        // Display an alert for an error in the DELETE query
+        alert('Post was not deleted');
+      }
+    });
+  }
+
+  // Function to build the form (unchanged from the previous task)
+  function buildForm() {
+    // ... (unchanged)
+  }
+
+  // Function to send the form data to the server (unchanged from the previous task)
+  function sendForm() {
+    // ... (unchanged)
+  }
+
+  // Call the functions when the page loads
+  $(document).ready(function() {
+    listPosts();
+    buildForm();
+  });
+</script>
+
+</body>
+</html>
